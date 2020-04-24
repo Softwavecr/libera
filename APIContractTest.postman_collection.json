@@ -1,0 +1,585 @@
+{
+	"info": {
+		"_postman_id": "7b767079-18b2-4b58-bcc9-86c697f9bad4",
+		"name": "APIContractTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_streets_return_code",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "10d5a13e-a039-477c-8a5f-f9df3b1d8585",
+						"exec": [
+							"schema = {\r",
+							"    \"definitions\": {},\r",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"title\": \"The Root Schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": {},\r",
+							"    \"additionalProperties\": true,\r",
+							"    \"required\": [\r",
+							"        \"id\",\r",
+							"        \"date\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"id\": {\r",
+							"            \"$id\": \"#/properties/id\",\r",
+							"            \"type\": \"integer\",\r",
+							"            \"title\": \"The Id Schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": 0,\r",
+							"            \"examples\": [\r",
+							"                1.0\r",
+							"            ]\r",
+							"        },\r",
+							"        \"date\": {\r",
+							"            \"$id\": \"#/properties/date\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The Date Schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"2020-04-23\"\r",
+							"            ]\r",
+							"        }\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "47021499-4eaa-4c71-9f44-2f9c511832d9",
+						"exec": [
+							"pm.test(\"Validating HTTP Response Code\", function() {\r",
+							"    var code = pm.response.code;\r",
+							"    console.log(code);\r",
+							"pm.expect(code).to.eql(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3200/get_streets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3200",
+					"path": [
+						"get_streets"
+					]
+				},
+				"description": "description"
+			},
+			"response": []
+		},
+		{
+			"name": "get_streets_schema",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "29d9a729-4edc-4fb0-b996-a2acbfad55c2",
+						"exec": [
+							"schema = {\r",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"array\",\r",
+							"    \"title\": \"The Root Schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": [],\r",
+							"    \"additionalItems\": true,\r",
+							"    \"items\": {\r",
+							"        \"$id\": \"#/items\",\r",
+							"        \"type\": \"object\",\r",
+							"        \"title\": \"The Items Schema\",\r",
+							"        \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"        \"default\": {},\r",
+							"        \"examples\": [\r",
+							"            {\r",
+							"                \"endx\": 40.4,\r",
+							"                \"endy\": 40.9,\r",
+							"                \"name\": \"Heredia\",\r",
+							"                \"startx\": 12.1,\r",
+							"                \"starty\": 24.3\r",
+							"            },\r",
+							"            {\r",
+							"                \"endx\": 23.4,\r",
+							"                \"endy\": 35.9,\r",
+							"                \"name\": \"Alajuela\",\r",
+							"                \"startx\": 15.1,\r",
+							"                \"starty\": 30.3\r",
+							"            },\r",
+							"            {\r",
+							"                \"endx\": 31.4,\r",
+							"                \"endy\": 49.9,\r",
+							"                \"name\": \"Limon\",\r",
+							"                \"startx\": 20.1,\r",
+							"                \"starty\": 72.3\r",
+							"            }\r",
+							"        ],\r",
+							"        \"additionalProperties\": true,\r",
+							"        \"required\": [\r",
+							"            \"name\",\r",
+							"            \"startx\",\r",
+							"            \"starty\",\r",
+							"            \"endx\",\r",
+							"            \"endy\"\r",
+							"        ],\r",
+							"        \"properties\": {\r",
+							"            \"name\": {\r",
+							"                \"$id\": \"#/items/properties/name\",\r",
+							"                \"type\": \"string\",\r",
+							"                \"title\": \"The Name Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": \"\",\r",
+							"                \"examples\": [\r",
+							"                    \"Heredia\"\r",
+							"                ]\r",
+							"            },\r",
+							"            \"startx\": {\r",
+							"                \"$id\": \"#/items/properties/startx\",\r",
+							"                \"type\": \"number\",\r",
+							"                \"title\": \"The Startx Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": 0,\r",
+							"                \"examples\": [\r",
+							"                    12.1\r",
+							"                ]\r",
+							"            },\r",
+							"            \"starty\": {\r",
+							"                \"$id\": \"#/items/properties/starty\",\r",
+							"                \"type\": \"number\",\r",
+							"                \"title\": \"The Starty Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": 0,\r",
+							"                \"examples\": [\r",
+							"                    24.3\r",
+							"                ]\r",
+							"            },\r",
+							"            \"endx\": {\r",
+							"                \"$id\": \"#/items/properties/endx\",\r",
+							"                \"type\": \"number\",\r",
+							"                \"title\": \"The Endx Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": 0,\r",
+							"                \"examples\": [\r",
+							"                    40.4\r",
+							"                ]\r",
+							"            },\r",
+							"            \"endy\": {\r",
+							"                \"$id\": \"#/items/properties/endy\",\r",
+							"                \"type\": \"number\",\r",
+							"                \"title\": \"The Endy Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": 0,\r",
+							"                \"examples\": [\r",
+							"                    40.9\r",
+							"                ]\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9435ea87-7aae-4337-8794-47aa09fc571d",
+						"exec": [
+							"pm.test(\"Validating Streets schema\", function() {\r",
+							"    var response = pm.response.json();\r",
+							"    console.log(response);\r",
+							"    var result=tv4.validateResult(response, schema)\r",
+							"pm.expect(result.valid).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3200/get_streets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3200",
+					"path": [
+						"get_streets"
+					]
+				},
+				"description": "checking for 200"
+			},
+			"response": []
+		},
+		{
+			"name": "insert_street",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4b60005d-8d66-4754-9fd6-51d3726c1b2f",
+						"exec": [
+							"pm.test(\"Validating HTTP Response Code\", function() {\r",
+							"    var code = pm.response.code;\r",
+							"    console.log(code);\r",
+							"pm.expect(code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "WWW-Authenticate",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "rdgf",
+							"type": "text"
+						},
+						{
+							"key": "startx",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "starty",
+							"value": "45",
+							"type": "text"
+						},
+						{
+							"key": "endx",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "endy",
+							"value": "50",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3200/street",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3200",
+					"path": [
+						"street"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "jairostreet",
+							"description": "jairodescription",
+							"disabled": true
+						},
+						{
+							"key": "start.x",
+							"value": "10",
+							"description": "start.x description",
+							"disabled": true
+						},
+						{
+							"key": "start.y",
+							"value": "20",
+							"description": "start.y description",
+							"disabled": true
+						}
+					]
+				},
+				"description": "insert_street"
+			},
+			"response": []
+		},
+		{
+			"name": "get_streets",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6675ebee-afb9-4b29-82b3-4bb614b4d3d3",
+						"exec": [
+							"schema = {\r",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"array\",\r",
+							"    \"title\": \"The Root Schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": [],\r",
+							"    \"additionalItems\": true,\r",
+							"    \"items\": {\r",
+							"        \"$id\": \"#/items\",\r",
+							"        \"type\": \"object\",\r",
+							"        \"title\": \"The Items Schema\",\r",
+							"        \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"        \"default\": {},\r",
+							"        \"examples\": [\r",
+							"            {\r",
+							"                \"endx\": 40.4,\r",
+							"                \"endy\": 40.9,\r",
+							"                \"name\": \"Heredia\",\r",
+							"                \"startx\": 12.1,\r",
+							"                \"starty\": 24.3\r",
+							"            },\r",
+							"            {\r",
+							"                \"endx\": 23.4,\r",
+							"                \"endy\": 35.9,\r",
+							"                \"name\": \"Alajuela\",\r",
+							"                \"startx\": 15.1,\r",
+							"                \"starty\": 30.3\r",
+							"            },\r",
+							"            {\r",
+							"                \"endx\": 31.4,\r",
+							"                \"endy\": 49.9,\r",
+							"                \"name\": \"Limon\",\r",
+							"                \"startx\": 20.1,\r",
+							"                \"starty\": 72.3\r",
+							"            }\r",
+							"        ],\r",
+							"        \"additionalProperties\": true,\r",
+							"        \"required\": [\r",
+							"            \"name\",\r",
+							"            \"startx\",\r",
+							"            \"starty\",\r",
+							"            \"endx\",\r",
+							"            \"endy\"\r",
+							"        ],\r",
+							"        \"properties\": {\r",
+							"            \"name\": {\r",
+							"                \"$id\": \"#/items/properties/name\",\r",
+							"                \"type\": \"string\",\r",
+							"                \"title\": \"The Name Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": \"\",\r",
+							"                \"examples\": [\r",
+							"                    \"Heredia\"\r",
+							"                ]\r",
+							"            },\r",
+							"            \"startx\": {\r",
+							"                \"$id\": \"#/items/properties/startx\",\r",
+							"                \"type\": \"number\",\r",
+							"                \"title\": \"The Startx Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": 0,\r",
+							"                \"examples\": [\r",
+							"                    12.1\r",
+							"                ]\r",
+							"            },\r",
+							"            \"starty\": {\r",
+							"                \"$id\": \"#/items/properties/starty\",\r",
+							"                \"type\": \"number\",\r",
+							"                \"title\": \"The Starty Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": 0,\r",
+							"                \"examples\": [\r",
+							"                    24.3\r",
+							"                ]\r",
+							"            },\r",
+							"            \"endx\": {\r",
+							"                \"$id\": \"#/items/properties/endx\",\r",
+							"                \"type\": \"number\",\r",
+							"                \"title\": \"The Endx Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": 0,\r",
+							"                \"examples\": [\r",
+							"                    40.4\r",
+							"                ]\r",
+							"            },\r",
+							"            \"endy\": {\r",
+							"                \"$id\": \"#/items/properties/endy\",\r",
+							"                \"type\": \"number\",\r",
+							"                \"title\": \"The Endy Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": 0,\r",
+							"                \"examples\": [\r",
+							"                    40.9\r",
+							"                ]\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6484b94b-e3f5-470d-825f-ff4502786a24",
+						"exec": [
+							"pm.test(\"Validating HTTP Response Code\", function() {\r",
+							"    var code = pm.response.code;\r",
+							"    console.log(code);\r",
+							"pm.expect(code).to.eql(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3200/get_streets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3200",
+					"path": [
+						"get_streets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "closest",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "05820bca-ca57-47ea-86d8-7b0c5f8bf3d0",
+						"exec": [
+							"schema = {\r",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"array\",\r",
+							"    \"title\": \"The Root Schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": [],\r",
+							"    \"additionalItems\": true,\r",
+							"    \"items\": {\r",
+							"        \"$id\": \"#/items\",\r",
+							"        \"type\": \"object\",\r",
+							"        \"title\": \"The Items Schema\",\r",
+							"        \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"        \"default\": {},\r",
+							"        \"examples\": [\r",
+							"            {\r",
+							"                \"name\": \"Limon\",\r",
+							"                \"distance\": 46.7780517958675\r",
+							"            },\r",
+							"            {\r",
+							"                \"name\": \"Puntarenas\",\r",
+							"                \"distance\": 53.08259089893726\r",
+							"            },\r",
+							"            {\r",
+							"                \"name\": \"Alajuela\",\r",
+							"                \"distance\": 59.602852280742404\r",
+							"            }\r",
+							"        ],\r",
+							"        \"additionalProperties\": true,\r",
+							"        \"required\": [\r",
+							"            \"name\",\r",
+							"            \"distance\"\r",
+							"        ],\r",
+							"        \"properties\": {\r",
+							"            \"name\": {\r",
+							"                \"$id\": \"#/items/properties/name\",\r",
+							"                \"type\": \"string\",\r",
+							"                \"title\": \"The Name Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": \"\",\r",
+							"                \"examples\": [\r",
+							"                    \"Limon\"\r",
+							"                ]\r",
+							"            },\r",
+							"            \"distance\": {\r",
+							"                \"$id\": \"#/items/properties/distance\",\r",
+							"                \"type\": \"number\",\r",
+							"                \"title\": \"The Distance Schema\",\r",
+							"                \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                \"default\": 0,\r",
+							"                \"examples\": [\r",
+							"                    46.7780517958675\r",
+							"                ]\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "048cfd09-33a9-43da-bddf-22d077d80615",
+						"exec": [
+							"pm.test(\"Validating HTTP Response Code\", function() {\r",
+							"    var code = pm.response.code;\r",
+							"    console.log(code);\r",
+							"pm.expect(code).to.eql(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3200/closest?x=80&y=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3200",
+					"path": [
+						"closest"
+					],
+					"query": [
+						{
+							"key": "x",
+							"value": "80"
+						},
+						{
+							"key": "y",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
