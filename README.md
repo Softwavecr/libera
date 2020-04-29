@@ -2,15 +2,21 @@
 
 This is a simple Node.js app including 3 endpoints
 
+1. Insert street
+
 app.post("/street", (req, res) => {...});
 
+2. Get all the streets endpoint was created verification purposes of the street insertion.
+
 app.get("/get_streets", (req, res) => {...});
+
+3. Find the nearest street to a point (x,y)
 
 app.get("/closest", (req, res) => {...});
 
 ## Running Locally
 
-Make sure you have [Node.js](http://nodejs.org/), [Express 4.17.1](http://expressjs.com/) and [Body-Parser 1.19.0](https://www.npmjs.com/package/body-parser)installed.
+Make sure you have [Node.js](http://nodejs.org/), [Express 4.17.1](http://expressjs.com/) and [Body-Parser 1.19.0](https://www.npmjs.com/package/body-parser) installed.
 
 ### Script approach
 ```sh
@@ -45,18 +51,17 @@ Tests09 - Run Build Task.png
 ## Algorithm
 The main resource used for this task was the Vector Projection approach as described in stackoverflow/wikipedia et al as seen in the code comments.
 
-`//Based on Vector Orthogonal Projection
-//https://www.superprof.es/apuntes/escolar/matematicas/analitica/recta/ecuacion-de-la-recta-que-pasa-por-dos-puntos.html
-//https://stackoverflow.com/questions/849211/shortest-distance-between-a-point-and-a-line-segment
-//https://www.desmos.com/calculator/md6buy4efz`
+Based on Vector Orthogonal Projection
+[Vector_projection](https://en.wikipedia.org/wiki/Vector_projection)
+[Ecuacion-de-la-recta-que-pasa-por-dos-puntos](https://www.superprof.es/apuntes/escolar/matematicas/analitica/recta/ecuacion-de-la-recta-que-pasa-por-dos-puntos.html)
+[shortest-distance-between-a-point-and-a-line-segment](https://stackoverflow.com/questions/849211/shortest-distance-between-a-point-and-a-line-segment)
+[Online Graphic Function Calculator](https://www.desmos.com/calculator/md6buy4efz)
 
 Probably the most interesting part was using vector instead of calculating m (slope)
 
 (x-x1)/(x2-x1) = (y-y1)/(y2-y1)
 
 Vector A / Vector C = Vector B / Vector D
-
-I also created and endpoint to get all the streets (/get_streets) so I could verify the insertion.
 
 It was a very fun task!
 
