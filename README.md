@@ -4,15 +4,15 @@ This is a simple Node.js app including 3 endpoints
 
 1. Insert street
 
-app.post("/street", (req, res) => {...});
+  `app.post("/street", (req, res) => {...});`
 
 2. Get all the streets endpoint was created verification purposes of the street insertion.
 
-app.get("/get_streets", (req, res) => {...});
+  `app.get("/get_streets", (req, res) => {...});`
 
 3. Find the nearest street to a point (x,y)
 
-app.get("/closest", (req, res) => {...});
+  `app.get("/closest", (req, res) => {...});`
 
 ## Running Locally
 
@@ -38,29 +38,26 @@ For automated test with newman, start the application via
 and then run `node apiContractTest.js`
 
 Many images have been uploaded to the repository as evidence of the execution a testing.
-Tests01 - getstreets.png
-Tests02 - street.png
-Tests03 - closest (returns sorted list by proximity).png
-Tests04 - getstreets2.png
-Tests05 - street (insert).png
-Tests06 - getstreets (notice Washington).png
-Tests07 - newman test execution01.png
-Tests08 - newman test execution02.png
-Tests09 - Run Build Task.png
+1. `Tests01 - getstreets.png`
+2. `Tests02 - street.png`
+3. `Tests03 - closest (returns sorted list by proximity).png`
+4. `Tests04 - getstreets2.png`
+5. `Tests05 - street (insert).png`
+6. `Tests06 - getstreets (notice Washington).png`
+7. `Tests07 - newman test execution01.png`
+8. `Tests08 - newman test execution02.png`
+9. `Tests09 - Run Build Task.png`
 
 ## Algorithm
-The main resource used for this task was the Vector Projection approach as described in stackoverflow/wikipedia et al as seen in the code comments.
+The main resource used for this task was the Vector Orthogonal Projection, Vectoras described in stackoverflow/wikipedia et al.
 
-Based on Vector Orthogonal Projection
-[Vector_projection](https://en.wikipedia.org/wiki/Vector_projection)
-[Ecuacion-de-la-recta-que-pasa-por-dos-puntos](https://www.superprof.es/apuntes/escolar/matematicas/analitica/recta/ecuacion-de-la-recta-que-pasa-por-dos-puntos.html)
-[shortest-distance-between-a-point-and-a-line-segment](https://stackoverflow.com/questions/849211/shortest-distance-between-a-point-and-a-line-segment)
-[Online Graphic Function Calculator](https://www.desmos.com/calculator/md6buy4efz)
+1. [Vector_projection](https://en.wikipedia.org/wiki/Vector_projection)
+2. [Ecuacion-de-la-recta-que-pasa-por-dos-puntos](https://www.superprof.es/apuntes/escolar/matematicas/analitica/recta/ecuacion-de-la-recta-que-pasa-por-dos-puntos.html)
+3. [shortest-distance-between-a-point-and-a-line-segment](https://stackoverflow.com/questions/849211/shortest-distance-between-a-point-and-a-line-segment)
+4. [Online Graphic Function Calculator](https://www.desmos.com/calculator/md6buy4efz)
 
 Probably the most interesting part was using vector instead of calculating m (slope)
-
 (x-x1)/(x2-x1) = (y-y1)/(y2-y1)
-
 Vector A / Vector C = Vector B / Vector D
 
 It was a very fun task!
