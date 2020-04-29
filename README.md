@@ -1,4 +1,24 @@
-# libera
+# Libera Drive - Challenge Accepted!
+
+This is a simple Node.js app including 3 endpoints
+
+app.post("/street", (req, res) => {...});
+
+app.get("/get_streets", (req, res) => {...});
+
+app.get("/closest", (req, res) => {...});
+
+## Running Locally
+
+Make sure you have [Node.js](http://nodejs.org/), [Express 4.17.1](http://expressjs.com/) and [Body-Parser 1.19.0](https://www.npmjs.com/package/body-parser)installed.
+
+```sh
+$ git clone https://github.com/Softwavecr/libera.git # or clone your own fork
+$ cd libera
+$ npm install
+$ npm start
+```
+
 In order to run the solution just open the workspace or folder in Visual Studio Code. 
 Then run the build Task, or start the debugger, or in the command line go to the folder of the project and run "node LiberaDrive.js"
 
