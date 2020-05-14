@@ -1,6 +1,6 @@
 # Libera Drive - Challenge Accepted!
 
-This is a simple Node.js app including 3 endpoints
+This is a simple Node.js app including 3 endpoints:
 
 1. Insert street:
 
